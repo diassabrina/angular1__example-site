@@ -1,0 +1,186 @@
+/*********************************************************************************/
+/* MAIN                                                            */
+/*********************************************************************************/
+// .container-fluid {
+//     min-width: 700px;
+//     max-width: 1000px;
+// }
+
+.t-main {
+    height: 100%;
+    z-index: 0;
+    
+    //super auxiliar de centralizacao de elementos
+    .get-center {
+        margin-top: 200px;
+        margin-bottom: 70px;
+        @media screen and  (min-width: @screen-md-min ){             
+            margin: auto;
+            position: relative;
+        }
+    }
+
+    
+    //pagins comuns a todos do main
+    .t-pages {
+        max-width: 965px;
+        text-align: center;
+        padding: 0 15px;
+        @media screen and  (min-width: @screen-sm-min ){          
+            margin: auto;
+            margin-top: 80px;
+            text-align: center;
+            position: relative;
+        }
+        a.btn {            
+            top: -2px;
+            position: relative;
+        }
+        .btn {
+            .transicao();
+            text-transform: none;
+            background: #838383;
+            height: 58px;
+            width: 110px;
+            // line-height: 58px;            
+            font-size: 1.3em;
+            padding-top: 14px;
+            margin-top: 45px;
+            &:disabled {
+                background: #D6D6D6;
+                color: #EFEFEF;
+            }
+            @media screen and  (min-width: @screen-sm-min ){
+                width: 230px;
+            }
+        }
+        .pages-title {
+            font-family: @font-family-auxiliar;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            font-size: 1.8em;
+            
+        }
+        .pages-descricao {
+            font-weight: 300;
+            display: block;
+            font-size: 2.4em;
+            line-height: 1.8em;
+            padding: 0;
+            margin: 0;
+            @media screen and  (min-width: @screen-md-min ){ 
+                font-size: 3.4em;
+            }
+        }
+        .tag-step {
+            .arredonda(25px);
+            background: #d2d2d2;
+            width: 85px;
+            height: 40px;
+            margin: auto;
+            margin-bottom: 15px;
+            padding: 0;
+            font-size: 1.6em;
+            line-height: 40px;
+        }
+        .pages-form {
+            margin-top: 75px;
+            label {
+                font-family: @font-family-auxiliar;
+                font-size: 1.8em;
+                font-weight: bold;
+                text-transform: uppercase;
+                
+            }
+            .pages-form-group {
+                text-align: center;
+                span {
+                    position: relative;
+                    // font-family: @font-family-auxiliar;
+                    font-size: 3em;
+                    font-weight: 300;
+                    text-transform: uppercase;  
+                    @media screen and  (min-width: @screen-sm-min ){ 
+                        float: right;
+                        right: 20px;
+                        font-size: 5em;
+                    }
+                    
+                }
+                input {     
+                    position: relative;       
+                    font-size: 4em;
+                    width: 100%;
+                    border: none;
+                    padding: 0 5px;
+                    text-align: center;
+                    @media screen and  (min-width: @screen-sm-min ){ 
+                        text-align: right;
+                        left: -30px;        
+                        font-size: 5em;
+                        &.formInvestimento {
+                            text-align: left;
+                        
+                        }
+                    }
+                }
+                .select-styled { 
+                    position: relative;
+                    width: 255px;
+                    @media screen and  (min-width: @screen-md-min ){ 
+                        width: 300px;
+                    }
+                    
+                    &:before {
+                        content: ' ';
+                        display: block;
+                        position: absolute;
+                        width: 27px;
+                        height: 100%;
+                        right: 5px;
+                        top: 50%;
+                        z-index: 1;
+                        width: 25px;
+                        height: 12px;
+                        // background: #ffffff url(../img/icons/arrow-down.svg) no-repeat center center;
+                        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5LjA3MiIgaGVpZ2h0PSI1LjcyOSIgdmlld0JveD0iMCAwIDkuMDcyIDUuNzI5Ij48cGF0aCBmaWxsPSIjNDA0MDQxIiBkPSJNNS4wOCA1LjQ3M0w4LjkzLjgwNyA4Ljk5Ni43M2MuMDQ4LS4wNzUuMDc3LS4xNjQuMDc3LS4yNiAwLS4yNi0uMjEtLjQ3LS40Ny0uNDdILjQ3Qy4yMSAwIDAgLjIxIDAgLjQ3MmMwIC4xLjAzLjE5LjA4My4yNjdMLjEzNi44bDMuODU0IDQuNjdjLjEzLjE1Ny4zMjYuMjU2LjU0NS4yNTYuMjIgMCAuNDE1LS4xLjU0NS0uMjU3eiIvPjwvc3ZnPg==) ;
+                        background-size: 93%;
+                    }
+                  select {
+                        display: block;
+                        border: none;
+                        -webkit-border-radius: 0px;
+                        border-radius: 0px;
+                        width: 100%;
+                        // height: 100%;
+                        position: relative;
+                        top: 0;
+                        left: 0;
+                        z-index: 2;
+                        -webkit-appearance: none;
+                        -moz-appearance: none;
+                        padding: 0 10px;
+                        font-weight: normal;
+                        font-style: normal;
+                        -webkit-font-smoothing: antialiased;
+                        font-smoothing: antialiased;
+                        -moz-osx-font-smoothing: grayscale;
+                        color: #000;
+                        font-size: 3.5em;
+                        background: transparent;
+                        cursor: pointer;
+                        color: #A9A9A9;
+                        @media screen and  (min-width: @screen-md-min ){ 
+                            font-size: 5em;
+                        }
+                        
+                        &.active {
+                            color: #666 !important;
+                        
+                        }
+                    }
+              }
+            }
+        }
+    }
+}

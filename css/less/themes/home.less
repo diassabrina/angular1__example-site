@@ -1,0 +1,109 @@
+/*********************************************************************************/
+/* ESTRUTURA                                                                     */
+/*********************************************************************************/
+
+.home {    
+    //modulos externos
+    .md-nav {
+        padding: 0;
+        float: right;
+        margin: 0;
+    }
+    
+    .panel { 
+        .panel-heading {
+            h2 {
+                
+            }
+        }
+    }
+    
+    .home-destaques {
+        .panel-body {
+            width: 100%;
+            height: 100%;
+            .md-lote-lista {
+                li{
+                   width: 45%; 
+                   @media screen and  (min-width: @screen-sm-min){
+                        width: 16.6%;
+                    }
+                } 
+                                 
+            }
+        }
+        
+    }
+    
+    .hm-anuncios{
+        &.anuncio-top{
+            margin: 30px 0;
+        }
+        &.anuncio-bottom{
+            margin-top: 40px;
+        }
+    }
+    
+    .home-sugestoes {
+        .md-lote-lista {
+            li{
+                float: left; 
+                width: 33.33%;
+                @media screen and  (min-width: @screen-sm-min){           
+                    // width: 20%;
+                }
+            }
+        }
+    }
+    .md-paginacao {
+        margin-top: -10px;
+    }
+    
+    
+    // agenda de leiloes    
+    .home-agenda {
+        .agenda-filtro{
+            width: 100%;
+            list-style: none;            
+            padding-left: 0;
+            background-color: @color-secondary;
+            .md-fake-select {
+                &:before {
+                    color: #fff;
+                }
+                .select-inner{
+                    border:1px solid @line-default;
+                }
+                .select-aux {
+                }
+            }
+            
+            &>li{                
+                display: table-cell;
+                width: 1%;
+                border-right: 1px solid lighten(@color-secondary,20%);
+                font-size: 0.9em;
+                 &>a{
+                    position: relative;
+                    display: block;
+                    padding: 10px;  
+                    text-transform: uppercase;
+                    color: #fff;
+                    text-align: center;
+                    &:hover {
+                        background: darken(@color-secondary, 10%);
+                    }
+                }
+            }            
+        }
+        
+        .agenda-selected{
+            border-bottom: 1px solid  @line-default;
+            padding: 5px 0;
+            margin-bottom: 30px;
+            
+        }
+    }
+    
+}
+    

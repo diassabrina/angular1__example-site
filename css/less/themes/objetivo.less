@@ -1,0 +1,58 @@
+/*********************************************************************************/
+/* Layout HEADER                                                                 */
+/*********************************************************************************/
+
+.t-objetivo {
+    .objetivo-list {
+        list-style: none;
+        padding-left: 0;
+        margin-right: -15px;
+        @media screen and  (min-width: @screen-sm-min ){ 
+            margin-right: -30px;
+        }
+        li {
+            display: block;
+            float: left;
+            width: 50%;
+            padding-right: 15px;
+            margin-bottom: 15px;
+            
+            @media screen and  (min-width: @screen-sm-min ){ 
+                width: 33.33%;
+                padding-right: 30px;
+                margin-bottom: 30px;
+            }
+            @media screen and  (min-width: @screen-md-min ){ 
+                width: 25%;
+            }
+            a {
+                .transicao();
+                position: relative;
+                display: block;
+                background: #838383;
+                height: 167px;
+                cursor: pointer;
+                padding: 20px;
+                span {
+                    width: 100%;
+                    text-align: center;
+                    position: absolute;
+                    display: block;
+                    color: #fff;
+                    padding: 0 10px;
+                    left: 0;
+                    bottom: 10px;
+                }
+                &.active {
+                    background: @color-primary;
+                }
+                
+                img {
+                    display: block;
+                    margin: auto;
+                }
+            }
+        }
+    }
+    
+}

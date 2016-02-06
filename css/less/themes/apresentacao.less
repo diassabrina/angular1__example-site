@@ -1,0 +1,40 @@
+/*********************************************************************************/
+/* Layout HEADER                                                                 */
+/*********************************************************************************/
+
+.t-apresentacao {
+    
+    .apresentacao-inner {
+        text-align: center;
+        .btn {
+            .sombra(-4px, 4px, 2px, -1px, 0.2);
+            .arredonda(3px);
+            width: 240px;
+            margin-top: 30px;
+        }
+        
+        .text-first {      
+            font-size: 1.9em;
+            color: @color-secondary;
+            margin-bottom: 10px;
+            @media screen and  (min-width: @screen-md-min ){ 
+                font-size: 2.3em;
+            }
+        }
+        
+        .text-second {   
+            font-size: 2.9em;
+            color: @color-primary; 
+            margin-bottom: 10px;
+            font-family: @font-family-auxiliar;  
+            @media screen and  (min-width: @screen-md-min ){ 
+                font-size: 3.3em;
+            }
+        }
+        
+        .text-descricao {            
+            font-size: 1.1em;
+            line-height: 1.8em;
+        }
+    }
+}

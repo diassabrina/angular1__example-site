@@ -1,0 +1,27 @@
+<section class="t-objetivo t-pages get-center" >
+	<div class="tag-step">2 de 3</div>
+	<h1 class="pages-title">Simule seus Investimentos</h1>
+	<h2 class="pages-descricao">Qual o valor total (estimado) de seu objetivo</h2>
+	
+	<form class="pages-form" name="formValidaValor" ng-submit="validaValor(valor)" novalidate>
+		<label>Valor</label>
+
+		<div class="pages-form-group" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
+			<div class="row">
+				<div class="col-xs-12 col-sm-6">
+					<span >R$</span>
+				</div>
+				<div class="col-xs-12 col-sm-6">
+					<input type="text"   name="nameValor"  class="formInvestimento" ng-model="valor"   ui-number-mask="decimals" autofocus tabindex="1" required>
+				</div>
+			</div>
+			
+		</div>
+		
+		<span class="help-block" ng-show="formValidaValor.valor.$dirty && formValidaValor.valor.$error.required">Este campo é obrigatório</span>		
+		<span class="help-block" ng-show="valorIncorreto">O valor deve ser superior a <b>$70,00</b></span>		
+		<!-- <a href="#" class="btn btn-default">Continuar</a> -->
+		<button type="submit" class="btn btn-default"  tabindex="2">Continuar</button>
+
+	</form>
+</section><div></div>	

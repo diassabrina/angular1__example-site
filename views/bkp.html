@@ -1,0 +1,65 @@
+<section class="t-list" ng-init="abrirLista()">
+	<div class="container">
+		<a href="#/listas" class="btn btn-default"><span class="glyphicon glyphicon-arrow-left"></span></a>
+		<ul class="list-inline pull-right">
+			<li><a href="#/editar-lista/{{listAtual.id}}" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span></a></li>
+			<li><button  class="btn btn-default" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-trash"></span></button></li>
+		</ul>
+		<div class="list-detail">
+			<form name="formDetalhe" class="form-inline" novalidate>
+
+				
+				<div class="list-detail-title">
+					<h1 class="pull-left">
+						<b>{{listAtual.titulo}}&nbsp &nbsp</b> 
+						<span ng-model="checadosGeral">{{checadosGeral}}</span>
+						&nbsp de &nbsp
+						<span>{{itens.length}}</span>
+					</h1> 
+					
+				</div>
+				
+				<div class="list-detail-aviso alert alert-warning" ng-show="!itens.length"><b>Utilize o campo abaixo para inserir itens à sua lista!</b></div>
+
+				<ul class="list-detail-itens list-unstyled" ng-show="itens.length">
+					<li ng-repeat="item in itens">
+						<div class="checkbox">
+							<label>
+								<input type="checkbox"  ng-checked"item.done" ng-model="item.done" ng-click="checaItem(item.id, item.done,listAtual.id )"> <span class="done-{{item.done}}">{{item.item}}</span>
+							</label>
+						</div>
+					</li>
+				</ul>
+
+				<div class="list-detail-insert text-center">
+					<div class="input-group">
+						<input type="text" class="form-control" name="insereItem" placeholder="Inserir Item" ng-model="nomeNovoItem" required tabindex="1">
+						<span class="input-group-btn">
+							<button class="btn btn-secondary" ng-class="{'color-disabled': formDetalhe.insereItem.$error.required}" type="button" ng-click="inserirItem(nomeNovoItem, listAtual.id)" ng-disabled="formDetalhe.insereItem.$error.required" tabindex="2">Inserir</button>
+						</span>
+					</div>
+					
+				</div>
+			</form>
+		</div>
+	</div>
+</section>
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			</div>
+			<div class="modal-body text-center">
+				<p>Deseja realmente excluir a lista <b>{{listAtual.titulo}}</b></p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+				<button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="excluiLista(listAtual.id)">Excluir</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+

@@ -1,0 +1,192 @@
+<!DOCTYPE HTML>
+<html ng-app="simuladorInvestimento"  ng-controller="CtrlSimulator">
+    <head>
+        <title>Rico.com.vc</title>
+        <meta name="description" content="Aqui na corretora de investimentos Rico você encontra todas as notícias, ferramentas e análises sobre o mercado financeiro."/>
+        <meta name="robots" content="index, follow" />
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="utf-8">
+        <meta name="author" content="Equipe Rico"/>
+        <meta name="copyright" content="Rico.com.vc"/>
+        <meta name="language" content="pt-br"/>
+        <!-- css -->
+        <link type="text/css" rel="stylesheet" href="external/bootstrap-3.3.6/css/bootstrap.min.css" />
+        <link type="text/css" rel="stylesheet" href="css/default.css" />
+        <!-- fonts -->
+        <link type="text/css" rel="stylesheet" href="fonts/font-awesome-4.5.0/css/font-awesome.min.css" />
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    </head>
+    
+    <body itemscope="" itemtype="http://schema.org/Organization">   
+
+        <input type="hidden" name="objetivoFinal" value="false">
+        <input type="hidden" name="valorFinal" value="false">
+        <input type="hidden" name="periodoFinal" value="false">
+        <input type="hidden" name="periodoTipoFinal" value="false">
+        <input type="hidden" name="resultadoFinal" value="false">
+
+
+        <!-- header -->
+        <header class="t-header">
+            <!-- header apresentacao -->
+            <div class="act-header header-first">
+                <div class="container">                
+                    <div class="header-logo pull-left"> 
+                        <a ui-sref="apresentacao" >            
+                            <picture>
+                                <img src="img/logos/logo-rico-main.png"  alt="Logotipo Rico">
+                            </picture>
+                        </a>   
+                    </div>
+                    <nav class="header-nav pull-right">                
+                        <ul >
+                            <li ><a href="#"><i class="fa fa-graduation-cap"></i>Aprenda</a></li>
+                            <li><a href="#"><i class="fa fa-question-circle"></i>Ajuda</a></li>
+                        </ul>
+                    </nav>
+                </div>         
+            </div>
+
+            <!-- header todas as paginas -->
+            <div class="act-header header-second">
+
+                <div class="container">                
+                    <div class="header-logo pull-left">          
+                        <a ui-sref="apresentacao" >         
+                            <picture>
+                                <img src="img/logos/logo-rico-branco.png"  alt="Logotipo Rico">
+                            </picture>
+                        </a>
+                    </div>
+                    <div class="pull-right">
+                        <div class="header-search">
+                            <i class="fa fa-search"></i>
+                        </div>
+
+                        <nav class="header-nav">                
+                            <ul >
+                                 <li>
+                                    <a href="#"><i class="fa fa-twitter"></i>   </a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-facebook-square"></i></a>
+                                </li>
+                                
+                                <li>
+                                    <a href="#"><i class="fa fa-youtube"></i></a>
+                                </li>
+                                
+                                <li>
+                                    <a href="#"><i class="fa fa-linkedin-square"></i></a>
+                                </li>
+
+                                <li>
+                                    <a href="#"><i class="fa fa-rss-square"></i></a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                 
+                    
+                </div>  
+            </div>   
+        </header>
+
+        
+        <!-- conteudo dinamico -->                
+        <main class="t-main">
+             <div ui-view></div>                       
+        </main>
+        
+        <!-- footer -->
+        <footer class="act-footer t-footer">
+            <div class="container">
+                <!-- logo footer -->
+                <div class="footer-logo">
+                    <img src="img/logos/logo-rico-footer.png" alt="Logotipo Rico Laranja">
+                </div>  
+                <ul class="nav-redesSociais visible-xs pull-right">
+                    <li>
+                        <a href="#"><i class="fa fa-play"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                    </li>
+                    
+                    <li>
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                    </li>
+                    
+                    <li>
+                        <a href="#"><i class="fa fa-instagram"></i></a>
+                    </li>
+                    
+                </ul>
+
+                <div class="clearfix visible-xs"></div>
+                <nav class="footer-nav" >
+                    <ul>
+                        <li class="hidden-xs"> 
+                            <ul class="nav-redesSociais ">
+                                <li>
+                                    <a href="#"><i class="fa fa-play"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                </li>
+                                
+                                <li>
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                </li>
+                                
+                                <li>
+                                    <a href="#"><i class="fa fa-instagram"></i></a>
+                                </li>
+                                
+                            </ul>
+                        </li>
+                        <li class="nav-workHere">
+                            <a href="#" class="text-default">Trabalhe Conosco</a>
+                        </li>
+                        <li class="nav-chatOnline">
+                            <a href="#" class="text-default">Chat Online</a>
+                        </li>
+                        <li class="nav-phone">
+
+                            <div class="nav-phone-box">
+                                <a href="#" class="text-default">
+                                    3003 5465
+                                </a>
+                                <small>Capitais e Regi&oacute;oes <br> Metropolitanas</small>
+                            </div>
+                            <div class="nav-phone-box">
+                                <a href="#" class="text-default">
+                                   0800 771 5465
+                                </a>
+                                <small>Demais localidades, somente <br> chamadas de telefone fixo</small>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>       
+            </div>
+        </footer>
+        
+    
+    </body>
+
+
+<script src="external/jquery-1.12.0.min.js"></script>
+<!-- <script src="external/angular.min.js"></script> -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular.min.js"></script>
+<script src="external/angular-ui-router.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.2.5/angular-locale_pt-br.js"></script>
+<script src="external/masks.js"></script>
+
+<!--[if lt IE 9]>
+<script src="js/plugins/respond/html5shiv.min.js"></script>
+<script src="js/plugins/respond/respond.min.js"></script>
+<![endif]-->
+<script src="js/utilities.js"></script>

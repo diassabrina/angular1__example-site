@@ -1,0 +1,53 @@
+//
+//==Bordas
+//
+.arredonda(@raio: 5px) {
+  -webkit-border-radius: @raio;
+     -moz-border-radius: @raio;
+          border-radius: @raio;
+}
+
+.gira(@giro: 45deg) {     
+    -ms-transform: rotate(@giro); /* IE 9 */
+    -webkit-transform: rotate(@giro); /* Chrome, Safari, Opera */
+    transform: rotate(@giro);
+}
+
+//
+//transicoes
+//
+
+.transicao (@velocidade: 0.4s) {
+    -moz-transition: @velocidade;
+    -o-transition: @velocidade;
+    -webkit-transition: @velocidade;
+    transition: @velocidade;
+}
+.sombra (@a:0, @b:4px, @c:5px, @d: -1px, @dt:.3 ){
+    -webkit-box-shadow: @a @b @c @d rgba(0,0,0, @dt);
+     box-shadow: @a @b @c @d rgba(0,0,0, @dt)
+}
+
+.sprite-default(){
+    background-image: url('../img/sprites.png');
+    background-repeat: no-repeat;
+}
+
+.icon-default(){
+    font-family: 'Glyphicons Halflings';
+    position: absolute;
+    display: block;
+    margin-top: -8px;
+    pointer-events: none;
+}
+
+@-webkit-keyframes rodaroda {
+	from {
+		-webkit-transform:rotate(0deg);
+	}
+	to {
+		-webkit-transform:rotate(180deg);
+	}
+}
+
+

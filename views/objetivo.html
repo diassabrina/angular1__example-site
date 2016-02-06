@@ -1,0 +1,53 @@
+<section class="t-objetivo t-pages get-center" ang-init="abrirLista()">
+
+		<div class="tag-step">1 de 3</div>
+		<h1 class="pages-title">Simule seus Investimentos</h1>
+		<h2 class="pages-descricao">Qual &eacute; o seu pr&oacute;ximo objetivo?</h2>
+			
+			<div class="container-fluid">
+				<ul class="objetivo-list">
+					<li>
+						<a  ng-click="validaObjetivo(1)" ng-class="{'active' : classObjetivo==1}">
+							<img src="img/objetivo/passo_1.png" alt="Patrimonio" class="img-responsive">
+							<span>Acumular patrim&ocirc;nio</span>
+						</a>
+					</li>
+					<li>
+						<a ng-click="validaObjetivo(2)" ng-class="{'active' : classObjetivo==2}" >					
+							<img src="img/objetivo/passo_2.png" alt="Aposentadoria" class="img-responsive">
+							<span>A Garantir minha aposentadoria</span>
+						</a>
+					</li>
+					<li>
+						<a ng-click="validaObjetivo(3)" ng-class="{'active' : classObjetivo==3}">
+							<img src="img/objetivo/passo_3.png" alt="Carro Novo" class="img-responsive">
+							<span>Comprar um carro</span>
+						</a>
+					</li>
+					<li>
+						<a ng-click="validaObjetivo(4)" ng-class="{'active' : classObjetivo==4}">
+							<img src="img/objetivo/passo_4.png" alt="Imovel novo" class="img-responsive">
+							<span>Comprar um im&oacute;vel</span>
+						</a>
+					</li>
+					<li>
+						<a ng-click="validaObjetivo(5)" ng-class="{'active' : classObjetivo==5}">
+							<img src="img/objetivo/passo_5.png" alt="Filhos" class="img-responsive">
+							<span>Ter filhos</span>
+						</a>
+					</li>
+					<li>
+						<a ng-click="validaObjetivo(6)" ng-class="{'active' : classObjetivo==6}">
+							<img src="img/objetivo/passo_6.png" alt="Novo Negocio" class="img-responsive">
+							<span>Abrir um neg&oacute;cio</span>
+						</a>
+					</li>
+					<li>
+						<a ng-click="validaObjetivo(7)" ng-class="{'active' : classObjetivo==7}">
+							<img src="img/objetivo/passo_7.png" alt="Viagem" class="img-responsive">
+							<span>Viagem</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+</section>

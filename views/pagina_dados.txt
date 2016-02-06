@@ -1,0 +1,25 @@
+[
+    {
+        "type": "treasury",
+        "description": "O Tesouro Direto é o melhor investimento em Renda Fixa porque reúne segurança, rentabilidade e opções de títulos com diferentes prazos. Assim você investe de acordo com oseu objetivo",
+        "typeName": "Tesouro Direto",
+        "minimumBuyValue": 70,
+        "term": ["medium", "long"],
+        "priority": 3
+    },
+    {
+        "type": "funds",
+        "description": "Um fundo de investimento é uma forma de aplicação financeira, formada pela união de vários investidores que se juntam para a realização de um investimento financeiro, não possuindo personalidade jurídica,e sendo constituído tal qual um condomínio, visando um determinado objetivo ou retorno esperado, dividindo as receitas geradas e as despesas necessárias para o empreendimento",
+        "typeName": "Fundos de Investimentos",
+        "minimumBuyValue": 2000,
+        "term": ["long"],
+        "priority": 2
+    },
+    {
+        "type": "fixed-income",
+        "description": "A  Rico oferece uma variedade de produtos de renda fixa com atendimento especializado. São investimentos acessíveis para qualquer pessoa que busca investimento conservador, seguro e com rentabilidade.",                "typeName": "Renda Fixa (LCI, LCA, LC, CDB)",
+        "minimumBuyValue": 10000,
+        "term": ["short", "medium", "long"],
+        "priority": 4
+    }
+]

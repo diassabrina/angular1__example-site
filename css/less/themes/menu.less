@@ -1,0 +1,37 @@
+//
+// MENU principal (box e Dropdown)
+//
+
+.flexnav {
+    background: @color-primary;
+    z-index: 10;
+    li {
+        
+        a {
+            color: #fff !important;
+            font-size: 14px;
+            &:hover {
+                background: #F3A74C;            
+            }
+        }
+        &.active {
+            a {
+                background: #F3A74C;
+                &:hover {
+                    background: #F3A74C;     
+                }
+            }
+        }
+        ul {
+            li {
+                a {
+                    background: #F3A74C;
+                    border-top: 1px solid #E29F4D;
+                     &:hover {
+                        background:@color-primary;          
+                    }
+                }
+            }
+        }
+    }
+}

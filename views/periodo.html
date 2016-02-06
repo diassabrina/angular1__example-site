@@ -1,0 +1,28 @@
+<section class="t-periodo t-pages get-center" >
+	<div class="container-fluid">
+		
+		
+		<div class="tag-step">3 de 3</div>
+		<h1 class="pages-title">Simule seus Investimentos</h1>
+		<h2 class="pages-descricao">Em quanto tempo deseja atingir seu objetivo</h2>
+		
+		<form class="pages-form" name="formValidaPeriodo" ng-submit="validaPeriodo(periodo,tipoPeriodo)" novalidate>
+			<div class="pages-form-group">
+				<input type="text" type="text" value="" name="namePeriodo" ng-model="periodo" placeholder="0" autofocus tabindex="1" required>
+				<div class="select-styled" tabindex="2">						
+					<select name="namePeriodoTipo" ng-model="tipoPeriodo" required  ng-class="{'active' : formValidaPeriodo.namePeriodoTipo.$valid}">
+						<option value="" selected>per&iacute;odo</option>
+						<option value="1" selected>meses</option>
+						<option value="2">anos</option>
+					</select>
+				</div>
+			</div>
+
+			<span class="help-block" ng-show="formValidaPeriodo.valor.$dirty && formValidaPeriodo.valor.$error.required">Este campo é obrigatório</span>		
+			<span class="help-block" ng-show="periodoIncorreto">{{mensagemErroPeriodo}}</b></span>	
+			<a ui-sref="investimento" class="btn btn-default" ng-show="periodoIncorreto">voltar</a>
+			<button type="submit" class="btn btn-default" ng-disabled="formValidaPeriodo.$invalid" tabindex="3">Continuar</button>
+
+		</form>
+	</div>
+</section>
