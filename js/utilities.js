@@ -246,7 +246,14 @@ angular
             };
 
         var Elements = new Elements();
-        Elements.centerElements();
+        Elements.centerElements(); // bugs mobile
+
+        $('html, body').animate({
+            scrollTop: 0
+        }, 500);
+
+
+        
 
         // resize functions
         $(window).resize(function(){
