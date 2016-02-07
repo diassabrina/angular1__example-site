@@ -8,7 +8,7 @@
 		
 		<form class="pages-form" name="formValidaPeriodo" ng-submit="validaPeriodo(periodo,tipoPeriodo)" novalidate>
 			<div class="pages-form-group">
-				<input type="text" type="text" value="" name="namePeriodo" ng-model="periodo" placeholder="0" autofocus tabindex="1" required>
+				<input type="text" type="text" value="" name="namePeriodo" ng-model="periodo" placeholder="0" ui-number-mask ="0" autofocus tabindex="1" required>
 				<div class="select-styled" tabindex="2">						
 					<select name="namePeriodoTipo" ng-model="tipoPeriodo" required  ng-class="{'active' : formValidaPeriodo.namePeriodoTipo.$valid}">
 						<option value="" selected>per&iacute;odo</option>

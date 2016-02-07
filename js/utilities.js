@@ -1,5 +1,3 @@
-
-
 (function() {
     'use strict';
 
@@ -51,7 +49,7 @@ angular
             periodoTipoFinal    = $('input[name="periodoTipoFinal"]'),
             periodoFinal        = $('input[name="periodoFinal"]'),
             resultadoFinal      = $('input[name="resultadoFinal"]'),
-            consulta 			= false;
+            consulta            = false;
 
        
         // verifica etapas
@@ -64,8 +62,8 @@ angular
 
         }
         else if(path == "/periodo"){
-        	
-        	if(objetivoFinal.val()=='false'){
+            
+            if(objetivoFinal.val()=='false'){
                 $state.go('objetivo');
             }else if (valorFinal.val()=='false'){
                 $state.go('investimento');
@@ -106,13 +104,11 @@ angular
 
         // funcao  verifica Periodo       
         $scope.validaPeriodo = function(periodo, tipo) {
-        	
-        	var resultado  = false,
-        	    mensagem   = false,
-        	    erro       = false,
-        	    tempo      = null,
-        	    valor      = $('input[name="valorFinal"]').val();
-        		
+            
+            var erro   = null,
+                tempo  = null,
+                valor  = $('input[name="valorFinal"]').val();
+                
 
 
             //verifica o tempo
@@ -122,58 +118,72 @@ angular
                 tempo = periodo;
             }
 
-        	
-            //verifica a melhor opção de investimento (resultado)
-            if( (valor >= 10000)){
-            	
-            	if( (tempo >= 5) ){
-            		resultado = 1;
-            	}else if( (tempo >= 2) && (tempo < 5) ){
-            		resultado = 0;
-            	}else{
-            		resultado = 2;
-            	}
-            	
-            }else if( (valor >= 2000) && (valor < 10000) ){
-            	
-            	if(tempo >= 5){
-            		resultado = 1;
-            	}else if( (tempo >= 2) && (tempo < 5) ){
-            		resultado = 0;
-            	}else if( (tempo < 2) ){
-            		erro = true;
-            		mensagem = 'Para esse valor é necessário fazer aplicações com 2 anos ou mais';
-            	}
-
-            }else if( (valor >= 70) && (valor < 2000) ){
-            	
-            	if(tempo >= 5){
-            		resultado = 0; 
-            	}else if( (tempo >= 2) && (tempo < 5) ){
-            		resultado = 0; 
-            	}else if( (tempo < 2) ){
-            		erro = true;
-            		mensagem = 'Para esse valor é necessário fazer aplicações com 2 anos ou mais';
-            	}
-            	
-            }else{
-            	erro = true;
-        		mensagem = 'O valor mínimo para aplicações é de R$70,00';
+            if(tempo<2){
+                tempo = "short";
             }
-        	
-        	//retorno 
-            if(erro){
-                $scope.mensagemErroPeriodo = mensagem;
-                $scope.periodoIncorreto = true;
-            }else{
-
-                $state.go('resultado');
+            else if(tempo>=2 && tempo <5){
+                tempo = "medium";
             }
+            else if(tempo>=5){
+                tempo = "long";
+            }
+            
 
-            // sets
-            periodoTipoFinal.val(tipo);
-            periodoFinal.val(periodo);
-            resultadoFinal.val(resultado);
+            $http
+            .get('http://private-a4710f-investimentssimulator.apiary-mock.com/available-investments')
+            .success(function(data){
+                var resultTempo    = [],
+                    resultDinheiro = [],
+                    resultFinal    = null;
+
+                angular.forEach(data, function(value, key){
+
+                    angular.forEach(value.term, function(valueTerm, keyTerm){
+
+                        if (valueTerm==tempo){
+                            resultTempo.push(value);
+                        }                        
+                    });
+                    
+                });
+
+                angular.forEach(resultTempo, function(valueValor, keyValor){
+                    if(valor >= valueValor.minimumBuyValue){
+                        resultDinheiro.push(valueValor)
+                    }   
+                });
+
+                if(resultDinheiro.length>=2){
+                    var aux = null;
+                    angular.forEach(resultDinheiro, function(valueResultado, keyResultado){
+                        if (valueResultado.priority<aux ||  aux == null){
+                            aux = valueResultado.priority;
+                            resultFinal = valueResultado;
+                        }
+                    });
+                    resultadoFinal.val(resultFinal['type']);
+                    erro = false;
+
+                }
+                else if(resultDinheiro.length==1) {
+                    resultFinal = resultDinheiro;
+
+                    resultadoFinal.val(resultFinal[0]['type']);
+                    erro = false;
+                }
+                else{
+                    $scope.mensagemErroPeriodo = 'Para esse valor é necessário fazer aplicações com 2 anos ou mais';
+                    $scope.periodoIncorreto = true;
+                    erro = true;
+                }
+                // sets
+                periodoTipoFinal.val(tipo);
+                periodoFinal.val(periodo);
+
+                if(erro==false){
+                    $state.go('resultado');
+                }
+            });
 
         };
 
@@ -187,14 +197,16 @@ angular
                     .get('http://private-a4710f-investimentssimulator.apiary-mock.com/available-investments')
                     // .get('http://127.0.0.1/rico/views/pagina_dados.txt')
                     .success(function(data){
-                        $scope.resultadoTitulo    = data[idResultado]['typeName'];
-                        $scope.resultadoDescricao = data[idResultado]['description'];
+                        angular.forEach(data, function(value, key){
+                            if(value['type'] == idResultado ){                                
+                                $scope.resultadoTitulo    = value['typeName'];
+                                $scope.resultadoDescricao = value['description'];
+                            }   
+                        });
                     });
             }
 
-            
-            
-            
+                        
         };
 
 
@@ -246,7 +258,10 @@ angular
             };
 
         var Elements = new Elements();
-        Elements.centerElements(); // bugs mobile
+        Elements.centerElements(); 
+
+
+        // bugs mobile
 
         $('html, body').animate({
             scrollTop: 0
